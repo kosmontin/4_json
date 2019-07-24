@@ -4,6 +4,9 @@ The module need for print json-file in readable style.
 # Quickstart
 
 [TODO]
+To print the json-file in readable form, pass it as a parameter.
+For example:
+> pprint_json.py example.json
 
 Example of script launch on Linux, Python 3.5:
 
