@@ -7,8 +7,8 @@ def load_data(filepath):
         return json.load(file_handler)
 
 
-def pretty_print_json(json_object):
-    print(json.dumps(json_object, indent=4, ensure_ascii=False))
+def pretty_print_json(decoded_json_object):
+    print(json.dumps(decoded_json_object, indent=4, ensure_ascii=False))
 
 
 if __name__ == '__main__':
@@ -18,6 +18,10 @@ if __name__ == '__main__':
             pretty_print_json(load_data(cmd_arg))
         except FileNotFoundError:
             print('File "', cmd_arg, '" not found.', sep='')
+        except json.JSONDecodeError as json_exception:
+            print('cannot decode passed object.',
+                  'Probably, file contain invalid syntax.')
+            print(str(json_exception))
     else:
         print(
             '''
